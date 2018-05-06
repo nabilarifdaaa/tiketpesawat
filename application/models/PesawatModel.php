@@ -7,11 +7,13 @@ class PesawatModel extends CI_Model {
 		$query = $this->db->get('kotaasal');
 		return $query;
 	}	
+
 	public function get_kotatujuan()
 	{
 		$query = $this->db->get('kotatujuan');
 		return $query;
 	}	
+
 	public function getPesawat(){
 		
 		$this->db->select('*');
@@ -29,4 +31,11 @@ class PesawatModel extends CI_Model {
 		return $data->result_array();
 	}
 
+	public function getDetail($KodePesawat="")
+	{
+
+		$pesawat = $this->db->query('SELECT * FROM pesawat 
+			where KodePesawat = '.'"'.$KodePesawat.'"'); 
+		return $pesawat->result_array();
+	}	
 }
