@@ -63,7 +63,7 @@
 								<h6>Book</h6>
 							</div>
 							<div class="book-button-column">
-								<a href="<?php echo base_url()."Pesawat/pilih/".$data['KodePesawat']; ?>">Book</a>
+								<a href="<?php echo base_url()."Penumpang/pilih/".$data['KodePesawat']; ?>">Book</a>
 							</div>
 						</div>
 						<div class="clearfix"> </div>
