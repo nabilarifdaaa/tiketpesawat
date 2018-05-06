@@ -64,33 +64,31 @@
 											<div class="online_reservation">
 													<div class="b_room">
 														<div class="booking_room">
+															<?php echo validation_errors(); ?>
+					 								<form method="POST" action="<?php echo base_url()."Pesawat/caripesawat"; ?>">
 															<div class="reservation">
 																<ul>		
 																	<li  class="span1_of_1 desti">
 																		 <h5>Flying from</h5>
 																		 <div class="book_date">
-																			 <form>
-																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-																				<select name="cari_asal" class="frm-field required">
-																				 <option id="0">Pilih Asal</option>
-																	                <?php foreach ($kota as $a) {
-																						echo"<option value=".$a->KotaAsal.">".$a->KotaAsal."</option>";}?>
+																			<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+																			<select name="cari_asal" class="frm-field required">
+																			 <option id="0">---Pilih Asal</option>
+																                <?php foreach ($kota as $a) {
+																					echo"<option value=".$a->KotaAsal.">".$a->KotaAsal."</option>";}?>
 																		  </select>
-																			 </form>
 																		 </div>					
 																	 </li>
 																	 <li  class="span1_of_1 left desti">
 																		 <h5>Flying to</h5>
 																		 <div class="book_date">
-																		 <form>
 																			<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 																			<select name="cari_tujuan" class="frm-field required">
-																				 <option id="0">Pilih Tujuan</option>
+																				 <option id="0">---Pilih Tujuan</option>
 																	                <?php
 																					foreach ($tujuan as $b) {
 																						echo"<option value=".$b->KotaTujuan.">".$b->KotaTujuan."</option>";}?>
 																		  </select>
-																		 </form>
 																		 </div>		
 																	 </li>
 																	 <div class="clearfix"></div>
@@ -101,24 +99,24 @@
 																	 <li  class="span1_of_1">
 																		 <h5>Departure</h5>
 																		 <div class="book_date">
-																		 <form>
+																		 
 																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 																			<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-																		 </form>
+																		 
 																		 </div>		
 																	 </li>
 																	 <li  class="span1_of_1 left">
 																		 <h5>Return</h5>
 																		 <div class="book_date">
-																			 <form>
+																			 
 																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 																				<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-																			</form>
+																			
 																		 </div>					
 																	 </li>
 																	 <li class="span1_of_1 left adult">
 																		 <h5>Adults (18+)</h5>
-																		 <!----------start section_room----------->
+																		 
 																		 <div class="section_room">
 																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
 																					<option value="null">1</option>
@@ -132,7 +130,7 @@
 																	</li>
 																	<li class="span1_of_1 left children">
 																		 <h5>Children (0-17)</h5>
-																		 <!----------start section_room----------->
+																		 
 																		 <div class="section_room">
 																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
 																					<option value="null">1</option>
@@ -146,7 +144,7 @@
 																	</li>
 																	<li class="span1_of_1 economy">
 																		 <h5>Class</h5>
-																		 <!----------start section_room----------->
+																		 
 																		 <div class="section_room">
 																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
 																					<option value="null">Economy</option>
@@ -161,9 +159,9 @@
 																<ul>	
 																	 <li class="span1_of_3">
 																			<div class="date_btn">
-																				<form>
+																				
 																					<input type="submit" value="Search" />
-																				</form>
+																				
 																			</div>
 																	 </li>
 																	 <div class="clearfix"></div>
@@ -173,122 +171,10 @@
 														<div class="clearfix"></div>
 													</div>
 											</div>
-											<!---->
 										</div>	
 									</div>
 							</div>		
-							<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-								<div class="facts">
-										<div class="booking-form">
-											<!---strat-date-piker---->
-											<link rel="stylesheet" href="<?php echo base_url('/assets/css/jquery-ui.css'); ?>" />
-											<script src="<?php echo base_url('/assets/js/jquery-ui.js'); ?>"></script>
-													  <script>
-															  $(function() {
-																$( "#datepicker,#datepicker1" ).datepicker();
-															  });
-													  </script>
-
-											<!---/End-date-piker---->
-											<div class="online_reservation">
-													<div class="b_room">
-														<div class="booking_room">
-															<div class="reservation">
-																<ul>		
-																	<li  class="span1_of_1 desti">
-																		 <h5>Flying from</h5>
-																		 <div class="book_date">
-																			 <form>
-																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-																				<input type="text" placeholder="Type Departure City" class="typeahead1 input-md form-control tt-input" required="">
-																			 </form>
-																		 </div>					
-																	 </li>
-																	 <li  class="span1_of_1 left desti">
-																		 <h5>Flying to</h5>
-																		 <div class="book_date">
-																		 <form>
-																			<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-																			<input type="text" placeholder="Type Destination City" class="typeahead1 input-md form-control tt-input" required="">
-																		 </form>
-																		 </div>		
-																	 </li>
-																	 <div class="clearfix"></div>
-																</ul>
-															</div>
-															<div class="reservation">
-																<ul>	
-																	 <li  class="span1_of_1">
-																		 <h5>Departure</h5>
-																		 <div class="book_date">
-																		 <form>
-																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-																			<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-																		</form>
-																		 </div>		
-																	 </li>
-																	 <li class="span1_of_1 left">
-																		 <h5>Adults (18+)</h5>
-																		 <!----------start section_room----------->
-																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">1</option>
-																					<option value="null">2</option>         
-																					<option value="AX">3</option>
-																					<option value="AX">4</option>
-																					<option value="AX">5</option>
-																					<option value="AX">6</option>
-																			  </select>
-																		 </div>	
-																	</li>
-																	<li class="span1_of_1 left tab-children">
-																		 <h5>Children (0-17)</h5>
-																		 <!----------start section_room----------->
-																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">1</option>
-																					<option value="null">2</option>         
-																					<option value="AX">3</option>
-																					<option value="AX">4</option>
-																					<option value="AX">5</option>
-																					<option value="AX">6</option>
-																			  </select>
-																		 </div>	
-																	</li>
-																	<li class="span1_of_1 economy">
-																		 <h5>Class</h5>
-																		 <!----------start section_room----------->
-																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">Economy</option>
-																					<option value="null">Business</option>     
-																			  </select>
-																		 </div>	
-																	</li>
-																	 <div class="clearfix"></div>
-																</ul>
-															</div>
-															<div class="reservation">
-																<ul>	
-																	 <li class="span1_of_3">
-																			<div class="date_btn">
-																				<form>
-																					<input type="submit" value="Search" />
-																				</form>
-																			</div>
-																	 </li>
-																	 <div class="clearfix"></div>
-																</ul>
-															</div>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-											</div>
-											<!---->
-										</div>	
-								</div>
-							</div> 			        					            	      
-						  </div>	
+					</form></div>			
 					  </div>	
 				</div>
 			</div>
