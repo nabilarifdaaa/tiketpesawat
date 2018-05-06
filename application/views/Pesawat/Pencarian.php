@@ -7,7 +7,20 @@
 				<div class="p-table"><!-- 
 					<h4>tanggal cari pesawat <?php echo "tanggal : ".$tanggal; ?></h4> -->
 					<div class="p-table-grids">
-					<?php foreach ($result as $data) { ?>
+					<?php
+					$no = 1;
+					 foreach ($result as $data) { ?>
+					 	<div class="col-md-1 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>No </h6>
+							</div>
+							<div class="p-table-grid-info">
+								<a href="#"><img src="images/p2.jpg" alt=""></a>
+								<div class="room-basic-info">
+									<h6><?php echo $no;?></h6>
+								</div>
+							</div>
+						</div>
 						<div class="col-md-3 p-table-grid">
 							<div class="p-table-grad-heading">
 								<h6>Pesawat</h6>
@@ -45,7 +58,7 @@
 								<span class="p-offer">RP <?php echo $data['Harga']; ?></span>
 							</div>
 						</div>
-						<div class="col-md-3 p-table-grid">
+						<div class="col-md-2 p-table-grid">
 							<div class="p-table-grad-heading">
 								<h6>Book</h6>
 							</div>
@@ -53,10 +66,10 @@
 								<a href="<?php echo base_url()."Pesawat/pilih/".$data['KodePesawat']; ?>">Book</a>
 							</div>
 						</div>
-
 						<div class="clearfix"> </div>
 						</div>
-		            <?php } ?>
+		            <?php $no++; } ?>
+						<div class="halaman">Halaman : <?php echo $halaman;?></div>
 				</div>
 				
 			</div>
