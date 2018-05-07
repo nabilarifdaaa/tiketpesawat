@@ -61,7 +61,7 @@ class Pesawat extends CI_Controller {
 		 $data['query'] = $this->PesawatModel->getPesawat($config['per_page']);
 
 		$this->load->view('Templates/Header');
-		$this->load->view('Pesawat/Pencarian',$data);
+		$this->load->view('Pesawat/DataTabel',$data);
 		$this->load->view('Templates/Footer');
 	}
 }
