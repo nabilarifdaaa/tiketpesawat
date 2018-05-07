@@ -6,4 +6,11 @@ class PenumpangModel extends CI_Model {
 		$res = $this->db->insert($tabelNama,$data);
 		return $res;
 	}
+
+	public function getPenumpangRecent(){
+		$query = $this->db->select('*')
+				->order_by('KodeBook', 'desc')
+				->get('penumpang',1);
+		return $query->row_array();
+	}
 }
