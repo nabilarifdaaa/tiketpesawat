@@ -1,16 +1,28 @@
-<head>
-<script>
-function startCalc(){
-interval = setInterval("calc()",1);}
-function calc(){
-one = document.autoSumForm.jumtik.value;
-two = document.autoSumForm.harga.value;
-document.autoSumForm.jumlah.value = one * two ;}
-function stopCalc(){
-clearInterval(interval);}
-</script>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootswatch: Minty</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="<?php echo base_url('./assets/css/bootstrap.min.css'); ?>" media="screen">
+    <!-- <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/minty/bootstrap.css"> -->
+    <script>
 
-</head>
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </head>
+<body>
  <div class="banner-bottom">
     <!-- container -->
     <div class="container">
@@ -93,7 +105,30 @@ clearInterval(interval);}
         </div>
     </div>
   </div>
-
+            <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+ <script src="<?php echo base_url('./assets/js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('./assets/js/bootstrap.min.js'); ?>"></script>
+  </body>
+</html>
    
 
    
