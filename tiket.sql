@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06 Mei 2018 pada 14.35
+-- Generation Time: 11 Mei 2018 pada 03.07
 -- Versi Server: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -23,40 +23,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kotaasal`
+-- Struktur dari tabel `booking`
 --
 
-CREATE TABLE IF NOT EXISTS `kotaasal` (
-  `IdAsal` int(11) NOT NULL,
-  `KotaAsal` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `kotaasal`
---
-
-INSERT INTO `kotaasal` (`IdAsal`, `KotaAsal`) VALUES
-(1, 'Malang(MLG)'),
-(2, 'Surabaya(SUB)');
+CREATE TABLE IF NOT EXISTS `booking` (
+  `IdBooking` int(5) NOT NULL,
+  `FK_KodePesawat` varchar(30) NOT NULL,
+  `FK_IdPenumpang` int(10) NOT NULL,
+  `JumlahTiket` int(11) NOT NULL,
+  `TotalHarga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kotatujuan`
+-- Struktur dari tabel `kota`
 --
 
-CREATE TABLE IF NOT EXISTS `kotatujuan` (
-  `IdTujuan` int(11) NOT NULL,
-  `KotaTujuan` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `kota` (
+  `IdKota` int(3) NOT NULL,
+  `NamaKota` varchar(150) NOT NULL,
+  `Bandara` varchar(150) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kotatujuan`
+-- Dumping data untuk tabel `kota`
 --
 
-INSERT INTO `kotatujuan` (`IdTujuan`, `KotaTujuan`) VALUES
-(1, 'Jakarta(JKTA)'),
-(2, 'Bali');
+INSERT INTO `kota` (`IdKota`, `NamaKota`, `Bandara`) VALUES
+(1, 'Malang (MLG)', 'Abdul Rahman Saleh (ABD)');
 
 -- --------------------------------------------------------
 
@@ -65,24 +60,12 @@ INSERT INTO `kotatujuan` (`IdTujuan`, `KotaTujuan`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `penumpang` (
-  `KodeBook` int(10) NOT NULL,
-  `KodePesawat` varchar(30) NOT NULL,
+  `IdPenumpang` int(10) NOT NULL,
   `Nama` varchar(150) DEFAULT NULL,
   `KTP` int(20) DEFAULT NULL,
   `Email` varchar(150) DEFAULT NULL,
-  `NoHp` int(13) DEFAULT NULL,
-  `Tanggal` date DEFAULT NULL,
-  `JumlahTiket` int(3) DEFAULT NULL,
-  `TempatDuduk` varchar(20) DEFAULT NULL,
-  `TotalHarga` int(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `penumpang`
---
-
-INSERT INTO `penumpang` (`KodeBook`, `KodePesawat`, `Nama`, `KTP`, `Email`, `NoHp`, `Tanggal`, `JumlahTiket`, `TempatDuduk`, `TotalHarga`) VALUES
-(3, 'Lion-JT831', 'lala', 123, 'nabilarifdaaa@gmail.com', 2147483647, '2018-05-06', NULL, '1a', NULL);
+  `NoHp` int(13) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -93,93 +76,82 @@ INSERT INTO `penumpang` (`KodeBook`, `KodePesawat`, `Nama`, `KTP`, `Email`, `NoH
 CREATE TABLE IF NOT EXISTS `pesawat` (
   `KodePesawat` varchar(30) NOT NULL,
   `Maskapai` varchar(50) NOT NULL,
-  `Landing` time NOT NULL,
   `Boarding` time NOT NULL,
-  `IdAsal` int(11) NOT NULL,
-  `IdTujuan` int(100) NOT NULL,
-  `BandaraAsal` varchar(100) NOT NULL,
-  `BandaraTujuan` varchar(100) NOT NULL,
+  `Landing` time NOT NULL,
+  `FK_IdAsal` int(3) NOT NULL,
+  `FK_IdTujuan` int(3) NOT NULL,
   `Kelas` varchar(20) NOT NULL,
   `Harga` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `pesawat`
---
-
-INSERT INTO `pesawat` (`KodePesawat`, `Maskapai`, `Landing`, `Boarding`, `IdAsal`, `IdTujuan`, `BandaraAsal`, `BandaraTujuan`, `Kelas`, `Harga`) VALUES
-('Batik ID-7580', 'Batik Air', '12:00:00', '10:30:00', 1, 1, 'ABD', 'CGK', 'Ekonomi', 696000),
-('Citilink QG-751', 'Citilink ', '12:45:00', '11:15:00', 1, 1, 'ABD', 'CGK', 'Ekonomi', 740000),
-('Lion-JT831', 'Lion', '08:25:00', '10:00:00', 1, 1, 'ABD', 'CGK', 'Ekonomi', 674000),
-('Sriwijara-SJ257', 'Sriwijaya', '06:20:00', '05:00:00', 2, 1, 'JUANDA', 'CGK', 'Ekonomi', 510800),
-('Sriwijaya SJ-251', 'Sriwijaya', '09:50:00', '08:30:00', 1, 1, 'ABD', 'CGK', 'Ekonomi', 440800);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `kotaasal`
+-- Indexes for table `booking`
 --
-ALTER TABLE `kotaasal`
-  ADD PRIMARY KEY (`IdAsal`);
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`IdBooking`),
+  ADD KEY `FK_KodePesawat` (`FK_KodePesawat`),
+  ADD KEY `FK_IdPenumpang` (`FK_IdPenumpang`);
 
 --
--- Indexes for table `kotatujuan`
+-- Indexes for table `kota`
 --
-ALTER TABLE `kotatujuan`
-  ADD PRIMARY KEY (`IdTujuan`);
+ALTER TABLE `kota`
+  ADD PRIMARY KEY (`IdKota`);
 
 --
 -- Indexes for table `penumpang`
 --
 ALTER TABLE `penumpang`
-  ADD PRIMARY KEY (`KodeBook`),
-  ADD KEY `fk1` (`KodePesawat`);
+  ADD PRIMARY KEY (`IdPenumpang`);
 
 --
 -- Indexes for table `pesawat`
 --
 ALTER TABLE `pesawat`
   ADD PRIMARY KEY (`KodePesawat`),
-  ADD KEY `fk0` (`IdAsal`),
-  ADD KEY `fk1` (`IdTujuan`);
+  ADD KEY `FK_IdAsal` (`FK_IdAsal`),
+  ADD KEY `FK_IdTujuan` (`FK_IdTujuan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `kotaasal`
+-- AUTO_INCREMENT for table `booking`
 --
-ALTER TABLE `kotaasal`
-  MODIFY `IdAsal` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `booking`
+  MODIFY `IdBooking` int(5) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `kotatujuan`
+-- AUTO_INCREMENT for table `kota`
 --
-ALTER TABLE `kotatujuan`
-  MODIFY `IdTujuan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `kota`
+  MODIFY `IdKota` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `penumpang`
 --
 ALTER TABLE `penumpang`
-  MODIFY `KodeBook` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `IdPenumpang` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Ketidakleluasaan untuk tabel `penumpang`
+-- Ketidakleluasaan untuk tabel `booking`
 --
-ALTER TABLE `penumpang`
-  ADD CONSTRAINT `penumpang_ibfk_1` FOREIGN KEY (`KodePesawat`) REFERENCES `pesawat` (`KodePesawat`);
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`FK_KodePesawat`) REFERENCES `pesawat` (`KodePesawat`),
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`FK_IdPenumpang`) REFERENCES `penumpang` (`IdPenumpang`);
 
 --
 -- Ketidakleluasaan untuk tabel `pesawat`
 --
 ALTER TABLE `pesawat`
-  ADD CONSTRAINT `pesawat_ibfk_1` FOREIGN KEY (`IdAsal`) REFERENCES `kotaasal` (`IdAsal`),
-  ADD CONSTRAINT `pesawat_ibfk_2` FOREIGN KEY (`IdTujuan`) REFERENCES `kotatujuan` (`IdTujuan`);
+  ADD CONSTRAINT `pesawat_ibfk_1` FOREIGN KEY (`FK_IdAsal`) REFERENCES `kota` (`IdKota`),
+  ADD CONSTRAINT `pesawat_ibfk_2` FOREIGN KEY (`FK_IdTujuan`) REFERENCES `kota` (`IdKota`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
