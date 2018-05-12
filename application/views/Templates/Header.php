@@ -7,12 +7,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Govihar a Travel Agency Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
+<title>Tiket Pesawat</title>
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Govihar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Custom Theme files -->
 <link href="<?php echo base_url('/assets/css/bootstrap.css'); ?>" type="text/css" rel="stylesheet" media="all">
@@ -48,30 +49,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="logo">
 					<h1><a  href="index.html"><span>Go</span>vihar</a></h1>
 				</div>
-				<!--navbar-header-->
-				<div class="header-dropdown">
-					<div class="emergency-grid">
-						<ul>
-							<li>Toll Free : </li>
-							<li class="call">+1 234 567 8901</li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
+				
 				<div class="clearfix"> </div>
 			</div>
 			<div class="nav-top">
 				<div class="top-nav">
 					<span class="menu"><img src="<?php echo base_url('/assets/images/menu.png');?>" alt="" /></span>
 					<ul class="nav1">
-						<li class="active"><a href="index.html">Flights</a></li>
-						<li><a href="hotels.html">Hotels</a></li>
-						<li><a href="holidays.html">Holidays</a></li>
-						<li><a href="flights-hotels.html">Flight+Hotel</a></li>
-						<li><a href="bus.html">Bus</a></li>
-						<li><a href="trains.html">Trains</a></li>
-						<li><a href="weekend.html">Weekend Getaways</a></li>
-						<li><a href="deals.html">Deals</a></li>
+						<li class="active"><a href="<?php echo base_url()."Pesawat/"; ?>">Jadwal</a></li>
+						<li><a href="#">Pesawat</a></li>
+						<li><a href="#">Kota</a></li>
+						<li><a href="#">Penumpang</a></li>
+						<li><a href="#">Booking</a></li>
 					</ul>
 					<div class="clearfix"> </div>
 					<!-- script-for-menu -->

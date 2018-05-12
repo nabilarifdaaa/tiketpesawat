@@ -24,13 +24,13 @@
         <table id="example" class="table table-hover">
             <thead>
 				<tr>
-					 <th>Kode Pesawat</th>
+					<th>Kode Pesawat</th>
 	                <th>Maskapai</th>
 	                <th>Landing</th>
 	                <th>Boarding</th>
 	                <th>Kota Asal</th>
+	               <th>Bandara Asal</th>
 	                <th>Kota Tujuan</th>
-	                <th>Bandara Asal</th>
 	                <th>Bandara Tujuan</th>
 	                <th>Kelas</th>
 	                <th>Harga</th>
@@ -38,16 +38,20 @@
 				</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($result as $data) { ?>
+					<?php foreach ($result3 as $data) { ?>
 		            <tr>
 		                <td><?php echo $data['KodePesawat']; ?></td>
 		                <td><?php echo $data['Maskapai']; ?></td>
 		                <td><?php echo $data['Landing']; ?></td>
 		                <td><?php echo $data['Boarding']; ?></td>
-		                <td><?php echo $data['KotaAsal']; ?></td>
-		                <td><?php echo $data['KotaTujuan']; ?></td>
-		                <td><?php echo $data['BandaraAsal']; ?></td>
-		                <td><?php echo $data['BandaraTujuan']; ?></td>
+		                	<?php foreach ($result1 as $data1) { ?>
+				                <td><?php echo $data1['NamaKota']; ?></td>
+				                <td><?php echo $data1['Bandara']; ?></td>
+				            <?php } ?>
+		                	<?php foreach ($result2 as $data2) { ?>
+		                		<td><?php echo $data2['NamaKota']; ?></td>
+		                		<td><?php echo $data2['Bandara']; ?></td>
+		                	<?php } ?> 
 		                <td><?php echo $data['Kelas']; ?></td>
 		                <td><?php echo $data['Harga']; ?></td>
 		                <td>	
