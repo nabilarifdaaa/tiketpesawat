@@ -2,41 +2,34 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Penumpang extends CI_Controller {
-
-	public function pilih($KodePesawat=""){
-		$this->load->model('PesawatModel');
-		$pesawat = $this->PesawatModel->getDetail($KodePesawat);
-		$data = array(
-			"KodePesawat" 	=> $pesawat[0]['KodePesawat'],
-			"Harga" 		=> $pesawat[0]['Harga']
-		);
-		// $data['pesawat'] = $this->PesawatModel->getDetail($KodePesawat);
+	public function read(){
+		$this->load->model('PenumpangModel');
+		$data['result']=$this->PenumpangModel->GetAll();
 		$this->load->view('Templates/Header');
-		$this->load->view('Penumpang/FormAdd',$data);
+		$this->load->view('Penumpang/read',$data);
+		$this->load->view('Templates/Footer');
+	} 
+
+	public function add(){
+		
+		$this->load->view('Templates/Header');
+		$this->load->view('Penumpang/FormAdd');
 		$this->load->view('Templates/Footer');
 	}
 
 	public function do_insert(){
-        $KodePesawat 	= $_POST['kode'];
         $nama 			= $_POST['nama'];
         $ktp 			= $_POST['ktp'];
 		$email			= $_POST['email'];
 		$nohp			= $_POST['nohp'];
-		$tgl 			= date("Y-m-d");
-		$jumtik			= $_POST['jumtik'];
-		$duduk 			= $_POST['duduk'];
-		$total 			= $_POST['total'];
 		
 		$data_insert	= array(
-								'KodePesawat' 	=> $KodePesawat,
+								
 								'Nama'	=> $nama,
 								'KTP'	=> $ktp,
 								'Email'	=> $email,
 								'NoHp'	=> $nohp,
-								'Tanggal'	=> $tgl,
-								'JumlahTiket'	=> $jumtik,
-								'TempatDuduk'	=> $duduk,
-								'TotalHarga'	=> $total
+						
 							);
 		
 		$this->load->model('PenumpangModel');
@@ -44,9 +37,21 @@ class Penumpang extends CI_Controller {
 		
 		if($res>=1){
 			$this->session->set_flashdata('pesan','Tambah Data Sukses');
-			redirect('Pesawat/');
+			redirect('Penumpang/read');
 		}else{
 			echo "<h2>Insert Data Gagal</h2>";	
 		}
 	}
+
+	public function do_delete($id){
+	  $this->load->model('PenumpangModel');
+	  $where  = array('idPenumpang' => $id);
+	  $res  = $this->PenumpangModel->DeleteData('penumpang',$where);
+	  if($res>=1){
+	   $this->session->set_flashdata('pesan','Delete Data Sukses');
+	   redirect('Penumpang/read');
+	   }
+	 }
+
+	 
 }

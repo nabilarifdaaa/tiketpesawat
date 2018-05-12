@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="<?php echo base_url('./assets/css/bootstrap.min.css'); ?>" media="screen">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/minty/bootstrap.css"> -->
     <script>
 
@@ -27,43 +35,10 @@
     <!-- container -->
     <div class="container">
       <?php echo form_open('Penumpang/do_insert', array('class' => 'needs-validation','novalidate' => ''));?>
-        <div class="col-md-4 single-gd-rt">
-              <div class="spl-btn">
-                <div class="spl-btn-bor">
-                  <a href="#">
-                    <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>                      
-                  </a>
-                  <p>Total Harga</p>  
-                  <script>
-                    $(document).ready(function(){
-                    $('[data-toggle="tooltip"]').tooltip();   
-                    });
-                  </script>
-                </div>
-                <div class="sp-bor-btn text-right">
-                  <div class="form-group">
-                    <label>Harga Pesawat</label>
-                    <input type="text" class="form-control harga-pesawat" name="harga" value="<?php echo $Harga; ?>" readonly>
-                  </div>
-                  <div class="form-group">
-                    <label>Jumlah Tiket</label>
-                    <input type='text' class="form-control jumlah-tiket" name="jumtik" style="text-align:right;"  size='23' onkeyup="initTotal(this)" />
-                  </div>
-                  <div class="form-group">
-                  <label>Total Harga</label>
-                    <input type="text" class="form-control total-harga" name="total" value='0' readonly></h4>
-                  </div>
-                </div>
-              </div>
-        </div>
         <div class="col-md-6">
           <div class="bs-component">
             <form class="needs-validation" novalidate>
               <fieldset>
-                <div class="form-group">
-                  <label>Kode Pesawat</label>
-                  <input type="text" class="form-control" name="kode" placeholder="Nama Lengkap" value="<?php echo $KodePesawat; ?>" readonly>
-                </div>
                 
                 <div class="form-group">
                   <label>Nama</label>
@@ -84,17 +59,6 @@
                   <label>No HP</label>
                   <input type="text" class="form-control" name="nohp" placeholder="No HP" value="<?php echo set_value('nohp')?>" required>
                   <div class="invalid-feedback">No HP kosong isi dong</div>
-                </div>
-                <div class="form-group">
-                  <label for="tgl">Tanggal</label>
-                  <input type="date" class="form-control" id="tgl" name="tgl" placeholder="Judul" value="<?php echo set_value('tanggal')?>" required>
-                  <div class="invalid-feedback">Tanggalnya kosong isi dong</div>
-                </div>
-                
-                <div class="form-group">
-                  <label>Tempat Duduk</label>
-                  <input type="text" class="form-control" name="duduk" aria-describedby="emailHelp" placeholder="Tempat Duduk" value="<?php echo set_value('duduk')?>" required>
-                  <div class="invalid-feedback">Pilih tempat duduk</div>
                 </div>
                 
                 <button type="submit" class="btn btn-primary" name="btnSubmit" id="btnSubmit" value="Simpan">Submit</button>
