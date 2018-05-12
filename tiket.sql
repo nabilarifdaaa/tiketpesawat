@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 11 Mei 2018 pada 03.07
+-- Generation Time: 12 Mei 2018 pada 07.42
 -- Versi Server: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `IdBooking` int(5) NOT NULL,
   `FK_KodePesawat` varchar(30) NOT NULL,
   `FK_IdPenumpang` int(10) NOT NULL,
+  `TanggalBook` date NOT NULL,
   `JumlahTiket` int(11) NOT NULL,
   `TotalHarga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -44,14 +45,16 @@ CREATE TABLE IF NOT EXISTS `kota` (
   `IdKota` int(3) NOT NULL,
   `NamaKota` varchar(150) NOT NULL,
   `Bandara` varchar(150) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kota`
 --
 
 INSERT INTO `kota` (`IdKota`, `NamaKota`, `Bandara`) VALUES
-(1, 'Malang (MLG)', 'Abdul Rahman Saleh (ABD)');
+(1, 'Malang (MLG)', 'Abdul Rahman Saleh (ABD)'),
+(2, 'Jakarta (CGK)', 'Soekarno Hatta International Airport'),
+(3, 'Bali / Denpasar (DPS)', 'Ngurah Rai Int''l');
 
 -- --------------------------------------------------------
 
@@ -81,8 +84,17 @@ CREATE TABLE IF NOT EXISTS `pesawat` (
   `FK_IdAsal` int(3) NOT NULL,
   `FK_IdTujuan` int(3) NOT NULL,
   `Kelas` varchar(20) NOT NULL,
-  `Harga` int(20) NOT NULL
+  `Harga` int(20) NOT NULL,
+  `LogoPesawat` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pesawat`
+--
+
+INSERT INTO `pesawat` (`KodePesawat`, `Maskapai`, `Boarding`, `Landing`, `FK_IdAsal`, `FK_IdTujuan`, `Kelas`, `Harga`, `LogoPesawat`) VALUES
+('LionJT-16', 'Lion', '18:45:00', '21:30:00', 2, 3, 'Ekonomi', 534200, ''),
+('SriwijayaSJ-251', 'Sriwijaya', '08:30:00', '09:50:00', 1, 2, 'Ekonomi', 553000, '');
 
 --
 -- Indexes for dumped tables
@@ -129,7 +141,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `kota`
 --
 ALTER TABLE `kota`
-  MODIFY `IdKota` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `IdKota` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `penumpang`
 --
