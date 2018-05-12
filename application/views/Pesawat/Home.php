@@ -75,7 +75,7 @@
 																			<select name="cari_asal" class="frm-field required">
 																			 <option id="0">---Pilih Asal</option>
 																                <?php foreach ($kota as $a) {
-																					echo"<option value=".$a->KotaAsal.">".$a->KotaAsal."</option>";}?>
+																					echo"<option value=".$a->IdKota.">".$a->NamaKota."</option>";}?>
 																		  </select>
 																		 </div>					
 																	 </li>
@@ -87,7 +87,7 @@
 																				 <option id="0">---Pilih Tujuan</option>
 																	                <?php
 																					foreach ($tujuan as $b) {
-																						echo"<option value=".$b->KotaTujuan.">".$b->KotaTujuan."</option>";}?>
+																						echo"<option value=".$b->IdKota.">".$b->NamaKota."</option>";}?>
 																		  </select>
 																		 </div>		
 																	 </li>

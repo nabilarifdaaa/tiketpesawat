@@ -12,7 +12,7 @@ class Pesawat extends CI_Controller {
 		$ddkota = $this->PesawatModel->get_kota();
 		$data['kota'] = $ddkota->result();
 		//dropdown kota asal
-		$ddtujuan = $this->PesawatModel->get_kotatujuan();
+		$ddtujuan = $this->PesawatModel->get_kota();
 		$data['tujuan'] = $ddtujuan->result();
 
 		$this->load->view('Templates/Header');
@@ -22,8 +22,11 @@ class Pesawat extends CI_Controller {
 
 	public function caripesawat(){
 		//tampil data pesawat
-		$data['result'] = $this->PesawatModel->getPesawat();
+		// $data['result2'] = $this->PesawatModel->getPesawat2();
+		$idAsal = $_POST['cari_asal'];
+		$idTujuan = $_POST['cari_tujuan'];
 		//pencarian
+		$data['result3'] = $this->PesawatModel->getPesawat3();
 		if(isset($_POST['cari_asal']))
 		{
 			$data['pencarian_kota']=$_POST['cari_asal'];
@@ -39,26 +42,11 @@ class Pesawat extends CI_Controller {
 		else{
 			$data['pencarian_tujuan']='';
 		}
-		$this->load->library('pagination');
-		//pagination
-		$jml = $this->db->get('pesawat');
-
-		//pengaturan pagination
-		 $config['base_url'] = base_url().'Pesawat/caripesawat';
-		 $config['total_rows'] = $jml->num_rows();
-		 $config['per_page'] = '3';
-		 $config['first_page'] = 'Awal';
-		 $config['last_page'] = 'Akhir';
-		 $config['next_page'] = '&laquo;';
-		 $config['prev_page'] = '&raquo;';
-
-		//inisialisasi config
-		 $this->pagination->initialize($config);
-
-		//buat pagination
-		 $data['halaman'] = $this->pagination->create_links();
-		//tamplikan data
-		 $data['query'] = $this->PesawatModel->getPesawat($config['per_page']);
+		$data['result1'] = $this->PesawatModel->getPesawat($idAsal);
+		$data['result2'] = $this->PesawatModel->getPesawat2($idTujuan);
+		
+		// echo "<pre>";
+		// print_r($data);die();
 
 		$this->load->view('Templates/Header');
 		$this->load->view('Pesawat/DataTabel',$data);
