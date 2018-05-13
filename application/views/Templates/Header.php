@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><a href="#">Pesawat</a></li>
 						<li><a href="#">Kota</a></li>
 						<li><a href="#">Penumpang</a></li>
-						<li><a href="#">Booking</a></li>
+						<li><a href="<?php echo base_url()."Booking/read"; ?>">Booking</a></li>
 					</ul>
 					<div class="clearfix"> </div>
 					<!-- script-for-menu -->
