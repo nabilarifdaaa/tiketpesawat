@@ -34,30 +34,30 @@
  <div class="banner-bottom">
     <!-- container -->
     <div class="container">
-      <?php echo form_open('Penumpang/do_insert', array('class' => 'needs-validation','novalidate' => ''));?>
+      <?php echo form_open('Penumpang/do_update','id="id', array('class' => 'needs-validation','novalidate' => ''));?>
         <div class="col-md-6">
           <div class="bs-component">
             <form class="needs-validation" novalidate>
               <fieldset>
-                
+                <input type="hidden" name="id" value="<?php echo $IdPenumpang; ?>">
                 <div class="form-group">
                   <label>Nama</label>
-                  <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?php echo set_value('nama')?>" required>
+                  <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?php echo set_value('nama',$Nama)?>" required>
                   <div class="invalid-feedback">Nama kosong isi dong</div>
                 </div>
                 <div class="form-group">
                   <label>KTP</label>
-                  <input type="text" class="form-control" name="ktp" placeholder="KTP" value="<?php echo set_value('ktp')?>" required>
+                  <input type="text" class="form-control" name="ktp" placeholder="KTP" value="<?php echo set_value('ktp',$KTP)?>" required>
                   <div class="invalid-feedback">KTP kosong isi dong</div>
                 </div>
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo set_value('email')?>" required>
+                  <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo set_value('email',$Email)?>" required>
                   <div class="invalid-feedback">Email kosong isi dong</div>
                 </div>
                 <div class="form-group">
                   <label>No HP</label>
-                  <input type="text" class="form-control" name="nohp" placeholder="No HP" value="<?php echo set_value('nohp')?>" required>
+                  <input type="text" class="form-control" name="nohp" placeholder="No HP" value="<?php echo set_value('nohp',$NoHp)?>" required>
                   <div class="invalid-feedback">No HP kosong isi dong</div>
                 </div>
                 
