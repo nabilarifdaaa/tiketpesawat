@@ -16,6 +16,14 @@ class PenumpangModel extends CI_Model {
 		$res = $this->db->delete($tabelNama,$data);
 		return $res;
 	}
+	public function UpdateData($tabelNama,$data,$where){
+		$res = $this->db->update($tabelNama,$data,$where);
+		return $res;
+	}
+	public function getedit($idpenum=''){
+		$data = $this->db->query('SELECT * FROM penumpang where IdPenumpang = '.$idpenum);
+		return $data->result_array();
+	}
 	public function getNama()
 	{
 		$query = $this->db->get('penumpang');
