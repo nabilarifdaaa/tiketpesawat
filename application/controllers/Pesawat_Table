@@ -1,0 +1,63 @@
+public function_construct()
+{
+	parent::_construct();
+	$this->load->helper('url');
+	$this->load->model('atasantable_model');
+}
+public function index()
+{
+	$data['atasan']=$this->atasantable_model->get_all_atasan();
+	$this->load->view('atasantable_view',$data);
+}
+public function atasantable_add()
+{
+	$data=array(
+	'Kode Pesawat'=>$this->input->post('Kode Pesawat'),
+	'Maskapai'=>$this->input->post('Maskapai'),
+	'Boarding'=>$this->input->post('Boarding'),
+	'Landing'=>$this->input->post('Landing'),
+	'FK_IdAsal'=>$this->input->post('FK_IdAsal'),
+	'FK_IdTujuan'=>$this->input->post('FK_IdTujuan'),
+	'Kelas'=>$this->input->post('Kelas'),
+	'Harga'=>$this->input->post('Harga'),
+	'Logo Pesawat'=>$this->input->post('Logo Pesawat'),
+	);
+	$insert = $this->atasantable_model->atasantable_add($data);
+	echo json_encode(array("status"=>TRUE));
+}
+		public function ajax_edit($id)
+		{
+			$data = $this->atasantable_model->get_by_id($id);
+
+
+
+			echo json_encode($data);
+		}
+
+		public function atasantable_update()
+	{
+		$data = array(
+			'Nama' => $this->input->post('Nama'),
+			'Kode Pesawat'=>$this->input->post('Kode Pesawat'),
+			'Maskapai'=>$this->input->post('Maskapai'),
+			'Boarding'=>$this->input->post('Boarding'),
+			'Landing'=>$this->input->post('Landing'),
+			'FK_IdAsal'=>$this->input->post('FK_IdAsal'),
+			'FK_IdTujuan'=>$this->input->post('FK_IdTujuan'),
+			'Kelas'=>$this->input->post('Kelas'),
+			'Harga'=>$this->input->post('Harga'),
+			'Logo Pesawat'=>$this->input->post('Logo Pesawat'),
+			);
+		$this->atasantable_model->atasantable_update(array('id_atasan' => $this->input->post('id_atasan')), $data);
+		echo json_encode(array("status" => TRUE));
+	}
+
+	public function atasantable_delete($id)
+	{
+		$this->atasantable_model->delete_by_id($id);
+		echo json_encode(array("status" => TRUE));
+	}
+
+
+
+}
