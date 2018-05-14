@@ -9,7 +9,7 @@
 					<div class="p-table-grids">
 					<?php
 					$no = 1;
-					 foreach ($result as $data) { ?>
+					  foreach ($result3 as $data) { ?>
 					 	<div class="col-md-1 p-table-grid">
 							<div class="p-table-grad-heading">
 								<h6>No </h6>
@@ -35,20 +35,33 @@
 						</div>
 						<div class="col-md-3 p-table-grid">
 							<div class="p-table-grad-heading">
-								<h6>Keterangan</h6>
+								<h6>Jadwal</h6>
 							</div>
 							<div class="rate-features">
 								<ul>
-									<li><?php echo $data['Landing']; ?></li>
+									<p><strong>Boarding</strong></p>
 									<li><?php echo $data['Boarding']; ?></li>
-									<li><?php echo $data['KotaAsal']; ?></li>
-									<li><?php echo $data['KotaTujuan']; ?></li>
-									<li><?php echo $data['BandaraAsal']; ?></li>
-									<li><?php echo $data['BandaraTujuan']; ?></li>
+						            <p><strong>Landing</strong></p>
+									<li><?php echo $data['Landing']; ?></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Keterangan</h6>
+							</div>
+							<div class="rate-features">
+								<ul>
+									<p><strong>Asal</strong></p>
+										<li><?=$result1['NamaKota'] ?></li>
+										<li><?=$result1['Bandara'] ?></li>
+						            <p><strong>Tujuan</strong></p>
+				                		<li><?=$result2['NamaKota']; ?></li>
+				                		<li><?=$result2['Bandara']; ?></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2 p-table-grid">
 							<div class="p-table-grad-heading">
 								<h6>Harga</h6>
 							</div>
@@ -56,20 +69,21 @@
 								<h5><?php echo $data['Kelas']; ?></h5>
 								<p>Harga:</p>
 								<span class="p-offer">RP <?php echo $data['Harga']; ?></span>
-							</div>
-						</div>
-						<div class="col-md-2 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Book</h6>
-							</div>
-							<div class="book-button-column">
-								<a href="<?php echo base_url()."Penumpang/pilih/".$data['KodePesawat']; ?>">Book</a>
+								<div class="book-button-column">
+									<a href="<?php echo base_url()."Booking/pilih/".$data['KodePesawat']; ?>">Book</a>
+								</div>
 							</div>
 						</div>
 						<div class="clearfix"> </div>
 						</div>
 		            <?php $no++; } ?>
-						<div class="halaman">Halaman : <?php echo $halaman;?></div>
+						<?php 
+		// $links ini berasal dari fungsi pagination 
+		// Jika $links ada (data melebihi jumlah max per page), maka tampilkan
+		if (isset($links)) {
+			echo $links;
+		} 
+		?>
 				</div>
 				
 			</div>

@@ -16,4 +16,9 @@ class PenumpangModel extends CI_Model {
 		$res = $this->db->delete($tabelNama,$data);
 		return $res;
 	}
+	public function getNama()
+	{
+		$query = $this->db->get('penumpang');
+		return $query;
+	}
 }

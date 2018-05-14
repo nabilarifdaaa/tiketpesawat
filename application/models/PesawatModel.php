@@ -15,20 +15,19 @@ class PesawatModel extends CI_Model {
 		$this->db->join('kota as a', 'p.FK_IdAsal =a.IdKota');
 		$this->db->where('FK_IdAsal = ',$idAsal);
 		$data=$this->db->get();
-		return $data->result_array();
+		return $data->row_array();
 	}
 
-	public function getPesawat2($idTujuan=''){
-		
+	public function getPesawat2($idTujuan=''){		
 		$this->db->select('*');		
 		$this->db->from('pesawat as p');
 		$this->db->join('kota as b', 'p.FK_IdTujuan =b.IdKota');
 		$this->db->where('FK_IdTujuan = ',$idTujuan);
 		$data=$this->db->get();
-		return $data->result_array();
+		return $data->row_array();
 	}
 
-	public function getPesawat3(){
+	public function getPesawat3($limit = FALSE, $offset = FALSE){
 		
 		$this->db->select('*');
 		if(!empty($_POST['cari_asal'])){
@@ -39,6 +38,7 @@ class PesawatModel extends CI_Model {
 		}
 
 		$this->db->from('pesawat as p');
+		$this->db->limit($limit, $offset);
 		$this->db->join('kota as a', 'p.FK_IdAsal =a.IdKota');
 		$this->db->join('kota as b', 'p.FK_IdTujuan =b.IdKota');
 		
@@ -53,4 +53,10 @@ class PesawatModel extends CI_Model {
 			where KodePesawat = '.'"'.$KodePesawat.'"'); 
 		return $pesawat->result_array();
 	}	
+
+	 public function get_total() 
+    {
+        // Dapatkan jumlah total artikel
+        return $this->db->count_all("pesawat");
+    }
 }
