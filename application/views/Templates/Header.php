@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<ul class="nav1">
 						<li class="active"><a href="<?php echo base_url()."Pesawat/"; ?>">Jadwal</a></li>
 						<li><a href="#">Pesawat</a></li>
-						<li><a href="#">Kota</a></li>
+						<li><a href="<?php echo site_url().'kota' ?>">Kota</a></li>
 <<<<<<< HEAD
 						<li><a href="#">Penumpang</a></li>
 						<li><a href="<?php echo base_url()."Booking/read"; ?>">Booking</a></li>
