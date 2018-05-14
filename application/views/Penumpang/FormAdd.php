@@ -62,7 +62,7 @@
                 </div>
                 
                 <button type="submit" class="btn btn-primary" name="btnSubmit" id="btnSubmit" value="Simpan">Submit</button>
-                <button class="btn btn-warning"><a href="<?php echo base_url()."Pesawat/tes"; ?>">Back</a></button>
+                <button class="btn btn-warning"><a href="<?php echo base_url()."Penumpang/read"; ?>">Back</a></button>
               </fieldset>
             </form> 
           </div>

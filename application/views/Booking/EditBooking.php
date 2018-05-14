@@ -35,7 +35,8 @@
     <!-- container -->
     <div class="container">
       <h3><strong>Reschedule Jadwal Keberangkatan Penumpang</strong></h3>
-      <?php echo form_open('Booking/do_update', array('class' => 'needs-validation','novalidate' => ''));?>
+      <?php echo validation_errors() ?>
+      <?php echo form_open(current_url());?>
         <div class="col-md-4 single-gd-rt">
               <div class="spl-btn">
                 <div class="spl-btn-bor">

@@ -73,7 +73,7 @@ class Pesawat extends CI_Controller {
 			
 			$this->pagination->initialize($config);
 				
-			// Buat link pagination
+			// Buat link pagination	
 			$data["links"] = $this->pagination->create_links();
 		}
 

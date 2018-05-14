@@ -59,13 +59,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li class="active"><a href="<?php echo base_url()."Pesawat/"; ?>">Jadwal</a></li>
 						<li><a href="#">Pesawat</a></li>
 						<li><a href="<?php echo site_url().'kota' ?>">Kota</a></li>
-<<<<<<< HEAD
-						<li><a href="#">Penumpang</a></li>
 						<li><a href="<?php echo base_url()."Booking/read"; ?>">Booking</a></li>
-=======
 						<li><a href="<?php echo base_url()."Penumpang/read/"; ?>">Penumpang</a></li>
-						<li><a href="#">Booking</a></li>
->>>>>>> aab65c5ea187748b9043abd9a6bc3dd6271037f2
+			
 					</ul>
 					<div class="clearfix"> </div>
 					<!-- script-for-menu -->
