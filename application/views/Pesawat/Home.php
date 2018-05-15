@@ -44,7 +44,7 @@
 					 <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 						  <ul class="resp-tabs-list">
 							  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Return</span></li>
-							  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>One way</span></li>
+							  
 							  <div class="clearfix"></div>
 						  </ul>		
 						  <!---->		  	 
@@ -94,67 +94,7 @@
 																	 <div class="clearfix"></div>
 																</ul>
 															</div>
-															<div class="reservation">
-																<ul>	
-																	 <li  class="span1_of_1">
-																		 <h5>Departure</h5>
-																		 <div class="book_date">
-																		 
-																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-																			<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-																		 
-																		 </div>		
-																	 </li>
-																	 <li  class="span1_of_1 left">
-																		 <h5>Return</h5>
-																		 <div class="book_date">
-																			 
-																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-																				<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-																			
-																		 </div>					
-																	 </li>
-																	 <li class="span1_of_1 left adult">
-																		 <h5>Adults (18+)</h5>
-																		 
-																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">1</option>
-																					<option value="null">2</option>         
-																					<option value="AX">3</option>
-																					<option value="AX">4</option>
-																					<option value="AX">5</option>
-																					<option value="AX">6</option>
-																			  </select>
-																		 </div>	
-																	</li>
-																	<li class="span1_of_1 left children">
-																		 <h5>Children (0-17)</h5>
-																		 
-																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">1</option>
-																					<option value="null">2</option>         
-																					<option value="AX">3</option>
-																					<option value="AX">4</option>
-																					<option value="AX">5</option>
-																					<option value="AX">6</option>
-																			  </select>
-																		 </div>	
-																	</li>
-																	<li class="span1_of_1 economy">
-																		 <h5>Class</h5>
-																		 
-																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">Economy</option>
-																					<option value="null">Business</option>     
-																			  </select>
-																		 </div>	
-																	</li>
-																	 <div class="clearfix"></div>
-																</ul>
-															</div>
+															
 															<div class="reservation">
 																<ul>	
 																	 <li class="span1_of_3">

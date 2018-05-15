@@ -59,4 +59,37 @@ class PesawatModel extends CI_Model {
         // Dapatkan jumlah total artikel
         return $this->db->count_all("pesawat");
     }
+
+    public function getall(){
+		$this->db->select('*');
+		$this->db->from('pesawat');
+		$data=$this->db->get();
+	
+		return $data->result_array();
+	}	
+
+	public function deletePesawat($id) {
+		$this->db->query("DELETE FROM pesawat WHERE KodePesawat = '$id'");
+
+		return true;
+	}
+
+	public function getPesawat4($id) {
+		$result = $this->db->query("SELECT * FROM pesawat WHERE KodePesawat = '$id'");
+		
+		return $result->result_array();
+	}
+
+	public function updatePesawat($data, $id) {
+	    $this->db->where('KodePesawat', $id);
+	    $this->db->update('pesawat', $data);
+	    
+	    return true;
+	}
+
+	public function addPesawat($data) {
+	    $this->db->insert('pesawat', $data);
+	    
+	    return true;
+	}
 }
