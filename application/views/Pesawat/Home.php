@@ -2,7 +2,7 @@
 	<div class="banner">
 		<!-- container -->
 		<div class="container">
-			<div class="col-md-4 banner-left">
+			<!-- <div class="col-md-4 banner-left">
 				<section class="slider2">
 					<div class="flexslider">
 						<ul class="slides">
@@ -35,8 +35,8 @@
 					</div>
 				</section>
 				<!--FlexSlider-->
-			</div>
-			<div class="col-md-8 banner-right">
+			</div> -->
+			<div class="col-md-12 banner-middle">
 				<div class="sap_tabs">	
 					<div class="booking-info">
 						<h2>Book Domestic & International Flight Tickets</h2>

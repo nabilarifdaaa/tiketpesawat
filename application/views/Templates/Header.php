@@ -57,10 +57,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<span class="menu"><img src="<?php echo base_url('/assets/images/menu.png');?>" alt="" /></span>
 					<ul class="nav1">
 						<li class="active"><a href="<?php echo base_url()."Pesawat/"; ?>">Jadwal</a></li>
-						<li><a href="<?php echo base_url()."Pesawat/read"; ?>">Pesawat</a></li>
+						<li><a href="<?php echo base_url()."Penumpang/read/"; ?>">History</a></li>
+						<!-- <li><a href="<?php echo base_url()."Pesawat/read"; ?>">Pesawat</a></li>
 						<li><a href="<?php echo site_url().'kota' ?>">Kota</a></li>
 						<li><a href="<?php echo base_url()."Booking/read"; ?>">Booking</a></li>
-						<li><a href="<?php echo base_url()."Penumpang/read/"; ?>">Penumpang</a></li>
+						<li><a href="<?php echo base_url()."Penumpang/read/"; ?>">Penumpang</a></li> -->
 			
 					</ul>
 					<div class="clearfix"> </div>
@@ -76,38 +77,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<!-- /script-for-menu -->
 				</div>
 				<div class="dropdown-grids">
-						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+						<div id="loginContainer"><a href="#" id="loginButton"><span>Options</span></a>
 							<div id="loginBox">                
 								<form id="loginForm">
 									<div class="login-grids">
 										<div class="login-grid-left">
 											<fieldset id="body">
-												<fieldset>
-													<label for="email">Email Address</label>
-													<input type="text" name="email" id="email">
-												</fieldset>
-												<fieldset>
-													<label for="password">Password</label>
-													<input type="password" name="password" id="password">
-												</fieldset>
-												<input type="submit" id="login" value="Sign in">
-												<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+												<div class="btn-group">
+  													<a href="<?php echo base_url()."user/register"; ?>"><button type="button" class="btn btn-warning">Register</button></a>
+  													<a href="<?php echo base_url()."user/login"; ?>"><button type="button" class="btn btn-success">Login</button></a>
+  													<a href="<?php echo base_url()."user/logout"; ?>"><button type="button" class="btn btn-danger">Logout</button></a>
+												</div>
+												
 											</fieldset>
-											<span><a href="#">Forgot your password?</a></span>
-											<div class="or-grid">
-												<p>OR</p>
-											</div>
-											<div class="social-sits">
-												<div class="facebook-button">
-													<a href="#">Connect with Facebook</a>
-												</div>
-												<div class="chrome-button">
-													<a href="#">Connect with Google</a>
-												</div>
-												<div class="button-bottom">
-													<p>New account? <a href="signup.html">Signup</a></p>
-												</div>
-											</div>
 										</div>
 									</div>
 								</form>
