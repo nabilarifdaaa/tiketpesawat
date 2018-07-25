@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="header-grids">
 				<div class="logo">
-					<h1><a  href="index.html"><span>Go</span>vihar</a></h1>
+					<h1><span>Go</span>vihar</h1>
 				</div>
 				
 				<div class="clearfix"> </div>
@@ -57,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<span class="menu"><img src="<?php echo base_url('/assets/images/menu.png');?>" alt="" /></span>
 					<ul class="nav1">
 						<li class="active"><a href="<?php echo base_url()."Pesawat/"; ?>">Jadwal</a></li>
-						<li><a href="<?php echo base_url()."Penumpang/read/"; ?>">History</a></li>
+						<li><a href="<?php echo base_url()."User/dashboard"; ?>">History</a></li>
 						<!-- <li><a href="<?php echo base_url()."Pesawat/read"; ?>">Pesawat</a></li>
 						<li><a href="<?php echo site_url().'kota' ?>">Kota</a></li>
 						<li><a href="<?php echo base_url()."Booking/read"; ?>">Booking</a></li>
@@ -79,12 +79,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="dropdown-grids">
 						<div id="loginContainer"><a href="#" id="loginButton"><span>Options</span></a>
 							<div id="loginBox">                
-								<form id="loginForm">
+								<form>
 									<div class="login-grids">
 										<div class="login-grid-left">
-											<fieldset id="body">
+											<fieldset>
 												<div class="btn-group">
-  													<a href="<?php echo base_url()."user/register"; ?>"><button type="button" class="btn btn-warning">Register</button></a>
   													<a href="<?php echo base_url()."user/login"; ?>"><button type="button" class="btn btn-success">Login</button></a>
   													<a href="<?php echo base_url()."user/logout"; ?>"><button type="button" class="btn btn-danger">Logout</button></a>
 												</div>

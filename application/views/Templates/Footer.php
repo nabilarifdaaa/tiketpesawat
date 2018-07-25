@@ -11,9 +11,9 @@
 						<h4>Download our mobile Apps</h4>
 						<div class="d-apps">
 							<ul>
-								<li><a href="#"><img src="<?php echo base_url('/assets/images/app1.png');?>" alt="" /></a></li>
-								<li><a href="#"><img src="<?php echo base_url('/assets/images/app2.png');?>" alt="" /></a></a></li>
-								<li><a href="#"><img src="<?php echo base_url('/assets/images/app3.png');?>" alt="" /></a></a></li>
+								<li><img src="<?php echo base_url('/assets/images/app1.png');?>" alt="" /></li>
+								<li><img src="<?php echo base_url('/assets/images/app2.png');?>" alt="" /></li>
+								<li><img src="<?php echo base_url('/assets/images/app3.png');?>" alt="" /></li>
 							</ul>
 						</div>
 					</div>
@@ -21,9 +21,9 @@
 						<h4>We Accept</h4>
 						<div class="a-cards">
 							<ul>
-								<li><a href="#"><img src="<?php echo base_url('/assets/images/c1.png');?>" alt="" /></a></li>
-								<li><a href="#"><img src="<?php echo base_url('/assets/images/c2.png');?>" alt="" /></a></a></li>
-								<li><a href="#"><img src="<?php echo base_url('/assets/images/c3.png');?>" alt="" /></a></a></li>
+								<li><img src="<?php echo base_url('/assets/images/c1.png');?>" alt="" /></li>
+								<li><img src="<?php echo base_url('/assets/images/c2.png');?>" alt="" /></li>
+								<li><img src="<?php echo base_url('/assets/images/c3.png');?>" alt="" /></li>
 							</ul>
 						</div>
 					</div>
@@ -31,16 +31,16 @@
 						<h4>Follow Us</h4>
 						<div class="social">
 							<ul>
-								<li><a href="#" class="facebook"> </a></li>
-								<li><a href="#" class="facebook twitter"> </a></li>
-								<li><a href="#" class="facebook chrome"> </a></li>
-								<li><a href="#" class="facebook dribbble"> </a></li>
+								<li><class="facebook"> </li>
+								<li><class="facebook twitter"> </li>
+								<li><class="facebook chrome"> </li>
+								<li><class="facebook dribbble"> </li>
 							</ul>
 						</div>
 					</div>
 					<div class="clearfix"> </div>
 					<div class="copyright">
-						<p>Copyrights © 2015 Govihar . Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+						<p>Copyrights © 2015 Govihar . Design by W3layouts</p>
 					</div>
 				</div>
 		</div>

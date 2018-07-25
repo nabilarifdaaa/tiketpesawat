@@ -95,7 +95,8 @@
                           <span>Flight</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="general.html">Data Pesawat</a></li>
+                          
+                          <li><a  href="<?php echo base_url()."Pesawat/read/"; ?>">Data Pesawat</a></li>
                           <li><a  href="buttons.html">Data Kota</a></li>
                       </ul>
                   </li>
