@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 Jul 2018 pada 14.41
+-- Generation Time: 25 Jul 2018 pada 08.47
 -- Versi Server: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `email` varchar(200) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `admin`
@@ -90,6 +90,26 @@ INSERT INTO `kota` (`IdKota`, `NamaKota`, `Bandara`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `levels`
+--
+
+CREATE TABLE IF NOT EXISTS `levels` (
+  `level_id` int(11) NOT NULL,
+  `nama_level` varchar(150) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `levels`
+--
+
+INSERT INTO `levels` (`level_id`, `nama_level`) VALUES
+(1, 'First Class'),
+(2, 'Bussiness'),
+(3, 'Economy');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `penumpang`
 --
 
@@ -99,16 +119,18 @@ CREATE TABLE IF NOT EXISTS `penumpang` (
   `KTP` int(20) DEFAULT NULL,
   `Email` varchar(150) DEFAULT NULL,
   `NoHp` int(13) DEFAULT NULL,
+  `fk_level_id` int(11) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `penumpang`
 --
 
-INSERT INTO `penumpang` (`IdPenumpang`, `Nama`, `KTP`, `Email`, `NoHp`, `username`, `password`) VALUES
-(1, 'Nabila', 1234, 'nabila@gmail.com', 12344, '', '');
+INSERT INTO `penumpang` (`IdPenumpang`, `Nama`, `KTP`, `Email`, `NoHp`, `fk_level_id`, `username`, `password`) VALUES
+(1, 'Nabila', 1234, 'nabila@gmail.com', 12344, 1, '', ''),
+(2, 'lala', 123, 'lalaa@gmail.com', 2147483647, 2, 'nabila', '652d3266220e0aacb047d3aa6f51f1b0');
 
 -- --------------------------------------------------------
 
@@ -140,25 +162,6 @@ INSERT INTO `pesawat` (`KodePesawat`, `Maskapai`, `Boarding`, `Landing`, `FK_IdA
 ('LionJT-815', 'Lion', '12:45:00', '13:55:00', 1, 2, 'Ekonomi', 418800, 'Screen shot 2012-02-10 at 04.50.00 .png'),
 ('SriwijayaSJ-251', 'Sriwijaya', '08:30:00', '09:50:00', 1, 2, 'Ekonomi', 553000, 'sriwijaya air.jpg');
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `users`
---
-
-INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
-(1, 'lala', '2e3817293fc275dbee74bd71ce6eb056');
-
 --
 -- Indexes for dumped tables
 --
@@ -184,10 +187,17 @@ ALTER TABLE `kota`
   ADD PRIMARY KEY (`IdKota`);
 
 --
+-- Indexes for table `levels`
+--
+ALTER TABLE `levels`
+  ADD PRIMARY KEY (`level_id`);
+
+--
 -- Indexes for table `penumpang`
 --
 ALTER TABLE `penumpang`
-  ADD PRIMARY KEY (`IdPenumpang`);
+  ADD PRIMARY KEY (`IdPenumpang`),
+  ADD KEY `fk_level` (`fk_level_id`);
 
 --
 -- Indexes for table `pesawat`
@@ -198,12 +208,6 @@ ALTER TABLE `pesawat`
   ADD KEY `FK_IdTujuan` (`FK_IdTujuan`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -211,7 +215,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `booking`
 --
@@ -223,15 +227,15 @@ ALTER TABLE `booking`
 ALTER TABLE `kota`
   MODIFY `IdKota` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `levels`
+--
+ALTER TABLE `levels`
+  MODIFY `level_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `penumpang`
 --
 ALTER TABLE `penumpang`
-  MODIFY `IdPenumpang` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `IdPenumpang` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -242,6 +246,12 @@ ALTER TABLE `users`
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`FK_KodePesawat`) REFERENCES `pesawat` (`KodePesawat`),
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`FK_IdPenumpang`) REFERENCES `penumpang` (`IdPenumpang`);
+
+--
+-- Ketidakleluasaan untuk tabel `penumpang`
+--
+ALTER TABLE `penumpang`
+  ADD CONSTRAINT `penumpang_ibfk_1` FOREIGN KEY (`fk_level_id`) REFERENCES `levels` (`level_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `pesawat`
