@@ -12,9 +12,9 @@ class Penumpang extends CI_Controller {
 	public function read(){
 		$this->load->model('PenumpangModel');
 		$data['result']=$this->PenumpangModel->GetAll();
-		$this->load->view('Templates/Header');
-		$this->load->view('Penumpang/read',$data);
-		$this->load->view('Templates/Footer');
+		$this->load->view('Templates/HeaderAdmin');
+		$this->load->view('Penumpang/all',$data);
+		$this->load->view('Templates/FooterAdmin');
 	} 
 
 	public function add(){

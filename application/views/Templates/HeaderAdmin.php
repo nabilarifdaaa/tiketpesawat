@@ -105,8 +105,8 @@
                           <span>Passenger</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="general.html">Data Penumpang</a></li>
                           <li><a  href="<?php echo base_url()."Booking/read/"; ?>">Data Booking</a></li>
+                          <li><a href="<?php echo base_url()."Penumpang/read/"; ?>">Data Penumpang</a></li>
                       </ul>
                   </li>
 
