@@ -8,6 +8,10 @@ class Pesawat extends CI_Controller {
 		$this->load->model('PesawatModel');
 	}
 
+	function reg(){
+		$this->load->view('Users/register');
+	}
+
 	public function index(){
 		$ddkota = $this->PesawatModel->get_kota();
 		$data['kota'] = $ddkota->result();
@@ -86,9 +90,9 @@ class Pesawat extends CI_Controller {
 		$data['result'] = $this->PesawatModel->getall();
 		
 
-		$this->load->view('Templates/Header');
-		$this->load->view('Pesawat/read',$data);
-		$this->load->view('Templates/Footer');
+		$this->load->view('Templates/HeaderAdmin');
+		$this->load->view('Pesawat/all',$data);
+		$this->load->view('Templates/FooterAdmin');
 	}
 
 	public function deletePesawat($id) {
@@ -100,15 +104,15 @@ class Pesawat extends CI_Controller {
 	public function editPesawat($id) {
 		$data['result'] = $this->PesawatModel->getPesawat4($id);
 		
-		$this->load->view('Templates/Header');
-		$this->load->view('Pesawat/update',$data);
-		$this->load->view('Templates/Footer');
+		$this->load->view('Templates/HeaderAdmin');
+		$this->load->view('Pesawat/editbaru',$data);
+		$this->load->view('Templates/FooterAdmin');
 	}
 
 	public function addPesawat() {
-		$this->load->view('Templates/Header');
-		$this->load->view('Pesawat/add');
-		$this->load->view('Templates/Footer');
+		$this->load->view('Templates/HeaderAdmin');
+		$this->load->view('Pesawat/addbaru');
+		$this->load->view('Templates/FooterAdmin');
 	}
 
 	public function doAdd() {
