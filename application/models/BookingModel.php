@@ -36,5 +36,23 @@ class BookingModel extends CI_Model {
 	public function DeleteData($tabelNama,$where){
 		$res = $this->db->delete($tabelNama,$where);
 		return $res;
-		}
+	}
+
+	function get_user_details($IdPenumpang)
+    {
+        // $this->db->select('*');
+        // $this->db->from('penumpang as p');
+        //$this->db->join('levels', 'levels.level_id=penumpang.fk_level_id');
+        $this->db->join('booking', 'booking.FK_IdPenumpang=penumpang.IdPenumpang');
+        $this->db->where('IdPenumpang', $IdPenumpang);
+
+
+        $result = $this->db->get('penumpang');
+
+        if($result->num_rows() == 1){
+            return $result->row(0);
+        } else {
+            return false;
+        }
+    }
 }

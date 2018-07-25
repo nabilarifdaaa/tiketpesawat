@@ -72,19 +72,26 @@
                   <label>Kode Pesawat</label>
                   <input type="text" class="form-control" name="kode" placeholder="Nama Lengkap" value="<?php echo $KodePesawat; ?>" readonly>
                 </div>
-                
                 <div class="form-group">
+                  <label>Id Penumpang</label>
+                  <input type="text" class="form-control" name="IdPenumpang" value="<?php echo $IdPenumpang ?>" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Nama Penumpang</label>
+                  <input type="text" class="form-control" name="username" value="<?php echo $username ?>" readonly>
+                </div>
+                <!-- <div class="form-group">
                   <label>Nama</label>
                   <select name="nama" class="custom-select" required>
                      <option id="0">---Pilih Penumpang</option>
                         <?php foreach ($penum as $a) {
-                        echo"<option value=".$a->IdPenumpang.">".$a->Nama."</option>";}?>
+                        echo"<option value=".$a->IdPenumpang." selected>".$a->Nama."</option>";}?>
                   </select>
                   <div class="invalid-feedback">Nama kosong isi dong</div>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label for="tgl">Tanggal</label>
-                  <input type="date" class="form-control" id="tgl" name="tgl" placeholder="Judul" value="<?php echo set_value('tanggal')?>" required>
+                  <input type="date" class="form-control" id="tgl" name="tgl" placeholder="Judul" value="<?php echo $now?>" required>
                   <div class="invalid-feedback">Tanggalnya kosong isi dong</div>
                 </div>
                 <button type="submit" class="btn btn-primary" name="btnSubmit" id="btnSubmit" value="Simpan">Submit</button>

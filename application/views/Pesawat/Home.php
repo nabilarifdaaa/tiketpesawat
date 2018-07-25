@@ -124,7 +124,7 @@
 	</div>
 	<!-- //banner -->
 	<div class="move-text">
-		<div class="marquee">Register your hotel with us free of cost.<a href="signup.html">Here</a></div>
+		<div class="marquee">Register your hotel with us free of cost.<a href="<?php echo base_url()."user/register"; ?>">Here</a></div>
 		<script type="text/javascript" src="<?php echo base_url('/assets/js/jquery.marquee.min.js'); ?>"></script>
         <script>
 		  $('.marquee').marquee({ pauseOnHover: true });
@@ -144,7 +144,7 @@
 						 <ul>
 							<li class="button"><a href="#">Goa Popular Hotels</a>
 								<li class="dropdown active">
-									<a href="products.html">
+									
 										<div class="destinations-grid">
 											<img src="<?php echo base_url('/assets/images/a1.jpg');?>" alt="" />
 										</div>
@@ -154,12 +154,10 @@
 											<div class="destinations-price">$100</div>
 											<div class="clearfix"> </div>
 										</div>
-									</a>
 								 </li>
 							</li>
 							<li class="button"><a href="#">Bangalore Popular Hotels</a>
 								<li class="dropdown">
-									<a href="products.html">
 										<div class="destinations-grid">
 											<img src="<?php echo base_url('/assets/images/a4.jpg');?>" alt="" />
 										</div>
@@ -169,12 +167,10 @@
 											<div class="destinations-price">$100</div>
 											<div class="clearfix"> </div>
 										</div>
-									</a>
 								 </li>
 							</li>							
 							<li class="button"><a href="#">Bangkok Popular Hotels</a>
 								 <li class="dropdown">
-									<a href="products">
 										<div class="destinations-grid">
 											<img src="<?php echo base_url('/assets/images/a3.jpg');?>" alt="" />
 										</div>
@@ -184,12 +180,10 @@
 											<div class="destinations-price">$240</div>
 											<div class="clearfix"> </div>
 										</div>
-									</a>
 								 </li>
 							</li>
 							<li class="button"><a href="#">Malaysia Popular Hotels</a>
 								 <li class="dropdown">
-									<a href="products.html">
 										<div class="destinations-grid">
 											<img src="<?php echo base_url('/assets/images/a1.jpg');?>" alt="" />
 										</div>
@@ -199,7 +193,6 @@
 											<div class="destinations-price">$320</div>
 											<div class="clearfix"> </div>
 										</div>
-									</a>
 								 </li>
 							 </li>							 
 						 </ul>
@@ -214,8 +207,7 @@
 									<h5>09</h5>
 									<span>Million</span>
 								</div>
-								<div class="choose-right">
-									<a href="products.html">Aliquam faucibus vehicula vulputate</a>
+								<div class="choose-right">Aliquam faucibus vehicula vulputate
 									<p>Maecenas euismod tortor a tristique convallis diam eros aliquam.</p>
 								</div>
 								<div class="clearfix"> </div>
@@ -224,8 +216,7 @@
 								<div class="choose-left">
 									<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
 								</div>
-								<div class="choose-right">
-									<a href="products.html">Sed tincidunt consectetur augue</a>
+								<div class="choose-right">Sed tincidunt consectetur augue
 									<p>Nulla bibendum libero in nunc eleifend tincidunt. Aliquam quis molestie lectus</p>
 								</div>
 								<div class="clearfix"> </div>
@@ -234,8 +225,7 @@
 								<div class="choose-left">
 									<h6>$</h6>
 								</div>
-								<div class="choose-right">
-									<a href="products.html">Nullam et arcu interdum, accumsan justo</a>
+								<div class="choose-right">Nullam et arcu interdum, accumsan justo
 									<p>Maecenas dapibus eu purus vel imperdiet. Maecenas cursus, arcu sed tempus </p>
 								</div>
 								<div class="clearfix"> </div>
@@ -245,14 +235,12 @@
 				</div>
 				<div class="col-md-4 banner-bottom-grid">
 					<div class="banner-bottom-middle">
-						<a href="products.html">
 							<img src="<?php echo base_url('/assets/images/a2.jpg');?>" alt="" />
 							<div class="destinations-grid-info tours">
 								<h5>Book your next Malaysia holiday!</h5>
 								<p>Integer eget aliquam nibh. Donec blandit volutpat libero id lacinia</p>
 								<p class="b-period">Book Period: Now - 7 September 2015 | Travel Period: Now - 31 October 2015 </p>
 							</div>
-						</a>
 					</div>
 					<div class="top-destinations-grids">
 						<div class="top-destinations-info">
@@ -264,7 +252,7 @@
 									<img src="<?php echo base_url('/assets/images/t1.jpg');?>" alt="" />
 								</div>
 								<div class="col-xs-7 td-middle">
-									<a href="products.html">Donec libero id lacinia</a>
+									Donec libero id lacinia
 									<p>Dapibus eu purus vel libero in nunc</p>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 								</div>
@@ -278,7 +266,7 @@
 									<img src="<?php echo base_url('/assets/images/t2.jpg');?>" alt="" />
 								</div>
 								<div class="col-xs-7 td-middle">
-									<a href="products.html">Donec libero id lacinia</a>
+									Donec libero id lacinia
 									<p>Dapibus eu purus vel libero in nunc</p>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 								</div>
@@ -292,7 +280,7 @@
 									<img src="<?php echo base_url('/assets/images/t3.jpg');?>" alt="" />
 								</div>
 								<div class="col-xs-7 td-middle">
-									<a href="products.html">Donec libero id lacinia</a>
+									Donec libero id lacinia
 									<p>Dapibus eu purus vel libero in nunc</p>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 								</div>
@@ -306,7 +294,7 @@
 									<img src="<?php echo base_url('/assets/images/t4.jpg');?>" alt="" />
 								</div>
 								<div class="col-xs-7 td-middle">
-									<a href="products.html">Donec libero id lacinia</a>
+									Donec libero id lacinia
 									<p>Dapibus eu purus vel libero in nunc</p>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 								</div>
@@ -320,14 +308,12 @@
 				</div>
 				<div class="col-md-4 banner-bottom-grid">
 					<div class="banner-bottom-right">
-						<a href="products.html">
 							<img src="<?php echo base_url('/assets/images/a3.jpg');?>" alt="" />
 							<div class="destinations-grid-info tours">
 									<h5>New Hotel Experiences at Your Favourite Destinations</h5>
 									<p>Integer eget aliquam nibh. Donec blandit volutpat libero id lacinia</p>
 									<p class="b-period">Book Period: Now - 7 September 2015 | Travel Period: Now - 31 October 2015 </p>
 							</div>
-						</a>
 					</div>
 					<div class="news-grids">
 						<div class="news-grids-info">
@@ -337,24 +323,23 @@
 							<!-- date -->
 							<div id="design" class="date">
 								<div id="cycler">   
-									<div class="date-text">
-										<a href="single.html">August 15,2015</a>
+									<div class="date-text">August 15,2015
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 									</div>
 									<div class="date-text">
-										<a href="single.html">July 08,2015</a>
+										July 08,2015
 										<p>Nullam non turpis sit amet metus tristique egestas et et orci.</p>
 									</div>
 									<div class="date-text">
-										<a href="single.html">February 15,2015</a>
+										February 15,2015
 										<p>Duis venenatis ac ipsum vel ultricies in placerat quam</p>
 									</div>
 									<div class="date-text">
-										<a href="single.html">January 15,2015</a>
+										January 15,2015
 										<p>Pellentesque ullamcorper fringilla ipsum, ornare dapibus velit volutpat sit amet.</p>
 									</div>
 									<div class="date-text">
-										<a href="single.html">September 24,2014</a>
+										September 24,2014
 										<p>In lobortis ipsum mi, ac imperdiet elit pellentesque at.</p>
 									</div>
 								</div>
@@ -392,20 +377,19 @@
 				<div class="arrival-grids">			 
 					 <ul id="flexiselDemo1">
 						 <li>
-							 <a href="products.html"><img src="<?php echo base_url('/assets/images/a3.jpg');?>" alt=""/>
-							 </a>
+							 <img src="<?php echo base_url('/assets/images/a3.jpg');?>" alt=""/>
+							 
 						 </li>
 						 <li>
-							 <a href="products.html"><img src="<?php echo base_url('/assets/images/a2.jpg');?>" alt=""/>
-							 </a>
+							 <img src="<?php echo base_url('/assets/images/a2.jpg');?>" alt=""/>
 						 </li>
 						 <li>
-							 <a href="products.html"><img src="<?php echo base_url('/assets/images/a4.jpg');?>" alt=""/>
-							 </a>
+							 <img src="<?php echo base_url('/assets/images/a4.jpg');?>" alt=""/>
+							 
 						 </li>
 						 <li>
-							 <a href="products.html"><img src="<?php echo base_url('/assets/images/a1.jpg');?>" alt=""/>
-							 </a>
+							 <img src="<?php echo base_url('/assets/images/a1.jpg');?>" alt=""/>
+							 
 						 </li>
 						</ul>
 						<script type="text/javascript">

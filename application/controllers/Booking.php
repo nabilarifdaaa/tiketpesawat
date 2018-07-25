@@ -11,11 +11,25 @@ class Booking extends CI_Controller {
 	}
 
 	public function pilih($KodePesawat=""){
+		if(!$this->session->userdata('logged_in')) 
+            redirect('user/login');
 
+        $IdPenumpang = $this->session->userdata('IdPenumpang');
+
+        // Dapatkan detail dari User
+        $data['user'] = $this->BookingModel->get_user_details( $IdPenumpang );
+        $username = $this->session->userdata('username');
+        $IdPenumpang = $this->session->userdata('IdPenumpang');
+        //print_r($this->session->userdata());die();
+
+        $now = date('Y-m-d');
 		$pesawat = $this->PesawatModel->getDetail($KodePesawat);
 		$data = array(
 			"KodePesawat" 	=> $pesawat[0]['KodePesawat'],
-			"Harga" 		=> $pesawat[0]['Harga']
+			"Harga" 		=> $pesawat[0]['Harga'],
+			"username"		=> $username,
+			"IdPenumpang"	=> $IdPenumpang,
+			"now" => $now
 		);
 		//dropdown nama
 		$name = $this->PenumpangModel->getNama();
@@ -29,15 +43,12 @@ class Booking extends CI_Controller {
 	public function do_insert(){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nama', 'Nama', 'required',
+		$this->form_validation->set_rules('jumtik', 'JumlahTiket', 'required',
 			array(
-				'required' 		=> 'Pilih %s lah satu aja.'
+				'required' 		=> 'Isi JumlahTiket.'
 			));
 
-		$this->form_validation->set_rules('tgl', 'Tgl', 'required',
-			array(
-				'required' 		=> 'Isi %s lah, hadeeh.'
-			));
+		
 		if ($this->form_validation->run() === FALSE)
 	    {
 	       	$this->load->view('Templates/Header');
@@ -45,14 +56,14 @@ class Booking extends CI_Controller {
 			$this->load->view('Templates/Footer');
 	    } else {
 	    	$KodePesawat 	= $_POST['kode'];
-	        $nama 			= $_POST['nama'];
+	        $IdPenumpang 	= $_POST['IdPenumpang'];
 			$tgl 			= date("Y-m-d");
 			$jumtik			= $_POST['jumtik'];
 			$total 			= $_POST['total'];
 			
 			$data_insert	= array(
 									'FK_KodePesawat' 	=> $KodePesawat,
-									'FK_IdPenumpang'	=> $nama,
+									'FK_IdPenumpang'	=> $IdPenumpang,
 									'TanggalBook'	=> $tgl,
 									'JumlahTiket'	=> $jumtik,
 									'TotalHarga'	=> $total
@@ -96,14 +107,11 @@ class Booking extends CI_Controller {
 			array(
 				'required' 		=> 'Isi %s lah, hadeeh.'
 			));
-		$this->load->view('Templates/Header');
-		$this->load->view('Booking/EditBooking',$data);
-		$this->load->view('Templates/Footer');
 	
 		if ($this->form_validation->run() === FALSE) {
-			$this->load->view('Templates/Header');
-			$this->load->view('Booking/EditBooking',$data);
-			$this->load->view('Templates/Footer');
+			$this->load->view('Templates/HeaderAdmin');
+			$this->load->view('Booking/editbaru',$data);
+			$this->load->view('Templates/FooterAdmin');
 		} else {
 			$idbook			= $_POST['idbook'];
 			$kode 			= $_POST['kode'];
