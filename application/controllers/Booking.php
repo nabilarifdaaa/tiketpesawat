@@ -70,9 +70,9 @@ class Booking extends CI_Controller {
 
 	public function read(){
 		$data['result'] = $this->BookingModel->GetBooking();
-		$this->load->view('Templates/Header');
-		$this->load->view('Booking/DataTable',$data);
-		$this->load->view('Templates/Footer');
+		$this->load->view('Templates/HeaderAdmin');
+		$this->load->view('Booking/All',$data);
+		$this->load->view('Templates/FooterAdmin');
 	}
 
 	public function preview($id=''){
