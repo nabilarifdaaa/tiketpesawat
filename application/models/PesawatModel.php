@@ -41,6 +41,13 @@ class PesawatModel extends CI_Model {
 		$this->db->limit($limit, $offset);
 		$this->db->join('kota as a', 'p.FK_IdAsal =a.IdKota');
 		$this->db->join('kota as b', 'p.FK_IdTujuan =b.IdKota');
+		if($this->session->userdata('level') == 1){
+			$this->db->where('Kelas','Jet Pribadi');
+		}else if($this->session->userdata('level') == 2){
+			$this->db->where('Kelas','Bussiness');
+		}else if ($this->session->userdata('level') == 3) {
+			$this->db->where('Kelas','Economy');
+		}
 		
 		$data=$this->db->get();
 		return $data->result_array();

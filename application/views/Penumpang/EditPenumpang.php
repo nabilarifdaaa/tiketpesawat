@@ -34,7 +34,7 @@
  <div class="banner-bottom">
     <!-- container -->
     <div class="container">
-      <h3><strong>Reschedule Jadwal Keberangkatan Penumpang</strong></h3>
+      <h3><strong>Edit Penumpang</strong></h3>
       <?php echo validation_errors() ?>
       <?php echo form_open(current_url());?>
         <div class="col-md-6">

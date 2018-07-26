@@ -1,4 +1,6 @@
-<div class="container">
+<!-- <div class="container"> -->
+<section id="main-content">
+  <section class="wrapper">
 	<h1>Edit Pesawat</h1>
 	<br/>
 	<form action="<?php echo base_url()."Pesawat/doEdit"; ?>" method="post" enctype="multipart/form-data">

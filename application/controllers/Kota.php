@@ -16,14 +16,20 @@ class Kota extends CI_Controller {
 	public function index()
 	{
 		$data['kota'] = $this->kotaModel->get_kota('kota');
-		$this->load->view('Templates/Header');
-		$this->load->view('kota/read', $data, FALSE);
-		$this->load->view('Templates/Footer');
+		$this->load->view('Templates/HeaderAdmin');
+		$this->load->view('Kota/all', $data);
+		$this->load->view('Templates/FooterAdmin');
 	}
 
+	function tambah(){
+		$this->load->view('Templates/HeaderAdmin');
+		$this->load->view('Kota/add');
+		$this->load->view('Templates/FooterAdmin');
+	}
 	// Add a new item
 	public function add()
 	{
+		
 		$data = array(
 			'NamaKota' => $this->input->post('nama'),
 			'Bandara' => $this->input->post('bandara')
@@ -36,13 +42,13 @@ class Kota extends CI_Controller {
 	public function update( $id = NULL )
 	{
 		$this->form_validation->set_rules('nama', 'Nama Kota', 'required');
-		$this->form_validation->set_rules('bandara', 'Nama Bandata', 'required');
+		$this->form_validation->set_rules('bandara', 'Nama Bandara', 'required');
 		// run validation
 		if ($this->form_validation->run() == FALSE) {
 			$data['kota'] = $this->kotaModel->get_single('kota', $id);
-			$this->load->view('Templates/Header');
-			$this->load->view('kota/edit', $data, FALSE);
-			$this->load->view('Templates/Footer');		
+			$this->load->view('Templates/HeaderAdmin');
+			$this->load->view('kota/editbaru', $data, FALSE);
+			$this->load->view('Templates/FooterAdmin');		
 		} else {
 			$data = array(
 			'NamaKota' => $this->input->post('nama'),

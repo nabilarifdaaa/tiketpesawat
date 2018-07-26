@@ -97,7 +97,7 @@
                       <ul class="sub">
                           
                           <li><a  href="<?php echo base_url()."Pesawat/read/"; ?>">Data Pesawat</a></li>
-                          <li><a  href="buttons.html">Data Kota</a></li>
+                          <li><a  href="<?php echo base_url()."Kota/"; ?>">Data Kota</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
