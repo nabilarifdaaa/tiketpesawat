@@ -17,8 +17,11 @@ Class User extends CI_Controller{
 
         // Dapatkan detail dari User
         $data['user'] = $this->userModel->get_user_details( $IdPenumpang );
-        $data['history'] = $this->userModel->get_book_details( $IdPenumpang );
-        print_r($data['history']);
+        // $data['history'] = $this->userModel->get_book_details( $IdPenumpang );
+        // print_r($data['history']);
+        $data['book']= $this->userModel->get_book_by_ID($IdPenumpang);
+        // echo $data['book']=json_encode(array('book' => $book->result() ));
+
         $this->load->view('templates/header');
         $this->load->view('users/dashboard',$data);
         $this->load->view('templates/footer');
@@ -59,15 +62,18 @@ Class User extends CI_Controller{
             $username = $this->input->post('username');
             $password = md5($this->input->post('password'));
             $IdPenumpang = $this->userModel->login($username, $password);
+            $level = $this->userModel->get_user_details($IdPenumpang)->fk_level_id;
 
             if($IdPenumpang){
                 $user_data = array(
                     'IdPenumpang' => $IdPenumpang,
                     'username' => $username,
-                    'logged_in' =>true);
+                    'logged_in' =>true,
+                    'level' => $level);
                 $this->session->set_userdata($user_data);
                 $this->session->set_flashdata('user_loggedin', 'You are now logged in'.$username);
                 //redirect('crud');
+                // print_r($user_data);
                 redirect('user/dashboard');
             } else {
                 $this->session->set_flashdata('login_failed', 'Login is invalid');

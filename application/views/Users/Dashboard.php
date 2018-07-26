@@ -24,21 +24,35 @@
 								<div class="clearfix"> </div>
 							</div>
 						</div>
-						<!-- <div class="comments">
-							<h3>History</h3>
-							<div class="comments-text">
-								<div class="col-md-9 comments-right">
-									<?php foreach ($history as $data) { ?>
-									<h5><?php echo $data['IdBooking']; ?></h5>
-									<h5><?php echo $data['KodePesawat']; ?></h5>
-									<h5><?php echo $data['TanggalBook']; ?></h5>
+						<h1>Data Booking</h1>
+        <?php echo "<h2>".$this->session->flashdata('pesan')."</h2>" ?>
+        <table id="example" class="table table-hover">
+            <thead>
+				<tr>
+					<th>Id Booking</th>
+					<th>Id Penumpang</th>
+					<th>Kode Pesawat</th>
+	                <th>Tanggal Book</th>
+	                <th>Jumlah Tiket</th>
+	                <th>Total Harga</th>
+				</tr>
+				</thead>
+				<tbody>
 
-									<?php } ?>
-									<?php echo $history->IdBooking ?>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div> -->
+					<?php foreach ($book as $data) { ?>
+		            <tr>
+		            	<td><?php echo $data['IdBooking']; ?></td>
+		                <td><?php echo $data['FK_IdPenumpang']; ?></td>
+		                <td><?php echo $data['FK_KodePesawat']; ?></td>
+		                <td><?php echo $data['TanggalBook']; ?></td>
+		                <td><?php echo $data['JumlahTiket']; ?></td>
+		                <td><?php echo $data['TotalHarga']; ?></td>
+		                
+		            </tr>
+		            <?php } ?>
+		            
+				</tbody>
+        </table>
 					</div>
 					<div class="clearfix"> </div>
 				</div>

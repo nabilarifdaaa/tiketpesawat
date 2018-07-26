@@ -66,6 +66,25 @@ class UserModel extends CI_Model{
         }
     }
 
+    function get_book_by_ID($IdPenumpang=0)
+    {
+        $this->db->select('*');
+        $this->db->from('booking');
+        $this->db->join('penumpang', 'penumpang.IdPenumpang=booking.FK_IdPenumpang');
+        $this->db->where('penumpang.IdPenumpang', $IdPenumpang);
+        $query=$this->db->get('');
+        return $query->result_array();
+
+        //$result = $this->db->get('booking');
+        // print_r($result);
+
+        // if($result->num_rows() == 1){
+        //     return $result->row(0);
+        // } else {
+        //     return false;
+        // }
+    }
+
      public function getedit($IdPenumpang=''){
     $data = $this->db->query('SELECT * FROM penumpang where IdPenumpang = '.$IdPenumpang);
     return $data->result_array();
